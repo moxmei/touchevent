@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset='utf-8'>
+		<title>单击或触屏使汽车上移</title>
+		<style>
+			html,
+			body {
+				margin: 0px;
+				border: 0px;
+				width: 100%;
+				height: 100%;
+				position: relative;
+			}
+			
+			#main {
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				margin-left: -250px;
+				margin-top: -300px;
+				width: 500px;
+				height: 600px;
+				background-image: url("res/bj.png");
+			}
+			
+			#car {
+				position: absolute;
+				bottom: 0px;
+				left: 215px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="main">
+			<img id="car" src="res/car.png">
+		</div>
+		<script>
+			window.onload = function() {
+				var car = document.getElementById("car");
+				var main=document.getElementById("main");
+				var x=0;
+			    car.onclick=moveup;
+				car.ontouchstart=moveup;
+
+				function moveup(){
+				if(x>=480){
+					x=480;
+				}
+				else{
+					x+=10;
+				}
+				document.getElementById("car").style.bottom=x+"px";
+			}	
+		}
+		</script>
+	</body>
+
+</html>
